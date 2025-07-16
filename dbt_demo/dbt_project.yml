@@ -1,0 +1,14 @@
+## Project
+name: dbt_demo
+version: "1.0"
+config-version: 2
+profile: dbt_demo
+
+## Models
+models:
+  dbt_demo:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+

@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: data
+    schema: raw
+    tables:
+      - name: customers
+        description: "Customer data"
+        columns:
+          - name: customer_id
+            description: "Unique identifier for each customer."
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: "Customer's first name."
+          - name: last_name
+            description: "Customer's last name."
+          - name: email
+            description: "Customer's email address."
+
+      - name: orders
+        description: "Order transactions"
+        columns:
+          - name: order_id
+            description: "Unique identifier for each order."
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "Foreign key referencing customers."
+          - name: order_date
+            description: "Date when the order was placed."
+          - name: order_amount
+            description: "Total amount for the order."
